@@ -2,9 +2,9 @@
 
 ## 题目背景
 
-曾经的 [$\color{purple}\mathbf{紫杉大道东}$](https://www.bilibili.com/video/BV1frNV6JEMp/) 流传着一则诡异的传说。
+曾经的 [**紫杉大道东**](https://www.bilibili.com/video/BV1frNV6JEMp/) 流传着一则诡异的传说。
 
-据说在 $\color{green}\mathbf{27}$ 年以前，存在着一个神秘的**魔法序列**，一开始跟我们所拥有的东西一样——这个序列一无所有，以至于 [$\color{purple}\mathbf{紫杉大道东}$](https://www.bilibili.com/video/BV1frNV6JEMp/) 熙熙攘攘的人群之中竟然没有一个人敢于肯定真的存在一个**魔法序列**。
+据说在 **27** 年以前，存在着一个神秘的**魔法序列**，一开始跟我们所拥有的东西一样——这个序列一无所有，以至于 [**紫杉大道东**](https://www.bilibili.com/video/BV1frNV6JEMp/) 熙熙攘攘的人群之中竟然没有一个人敢于肯定真的存在一个**魔法序列**。
 
 > 大家都很害怕所谓一些不存在的东西，什么妖魔鬼怪啊，棍父棍母啊。大概是人们不知道自己传统经验认知以外的事物会对自己的生存造成什么很意想不到的影响，是好是坏可能也分不清楚。
 >
@@ -17,8 +17,7 @@
 
 小左饲养了几个神秘函数——$\texttt{build}$ 可以将一个下标从 $0$ 开始的数组交给**魔法使**（可能吧），这样让魔法序列显现成那个数组的样子，**至少**从表面看过去一样，$\texttt{add}$ 可以把一个神秘区间中的全体数字提升一个层级（做加法），还有一个 $\texttt{mul}$ 更厉害，可以直接将区间中的数字翻倍（做乘法）！但是他们都不如 $\texttt{reset}$，这个函数可以在不论什么情况下，把这些数全部变成一样的（区间赋值）。
 
-小右希望**监视**小左饲养的魔法序列，他可能会使用 $
-\texttt{r\_sum}$ 来看看一个区间中所有数字的和，也可能使用 $\texttt{r\_max}$ 来看看区间最大值，用来防止有天最大值威胁到他的生命安全。相应的，他也有 $\texttt{r\_min}$ 来嘲笑区间最小值。
+小右希望**监视**小左饲养的魔法序列，他可能会使用 $\texttt{r\\_sum}$ 来看看一个区间中所有数字的和，也可能使用 $\texttt{r\\_max}$ 来看看区间最大值，用来防止有天最大值威胁到他的生命安全。相应的，他也有 $\texttt{r\\_min}$ 来嘲笑区间最小值。
 
 ## 题目描述
 
@@ -26,7 +25,7 @@
 
 本题同时作为**线段树**和**高精度**的模板练习。
 
-你需要实现上面所述的这些函数：$\texttt{build},\texttt{add},\texttt{mul},\texttt{reset},\texttt{r\_sum},\texttt{r\_max},\texttt{r\_min}$，并以此来向紫东的那些守旧派表明实际上魔法序列~看起来蛮傻~真的存在。他们的原型是：
+你需要实现上面所述的这些函数：$\texttt{build},\texttt{add},\texttt{mul},\texttt{reset},\texttt{r\\_sum},\texttt{r\\_max},\texttt{r\\_min}$，并以此来向紫东的那些守旧派表明实际上魔法序列~看起来蛮傻~真的存在。他们的原型是：
 ```cpp
 #include<vector>
 class Bint;
@@ -42,7 +41,7 @@ extern "C"{
 ```
 其中 $a$ 是那个数组，$[l,r]$ 是使用的区间，$d$ 是操作用到的数字。**交互库已提供高精度类 $\texttt{Bint}$ 的数据存储和基础运算符**（`*=int`, `+=int`, `-`, `<int`, `/int`, `%int`），可直接使用。
 
-此外，因为 [$\color{purple}\mathbf{紫杉大道东}$](https://www.bilibili.com/video/BV1frNV6JEMp/) 管控了小左小右使用电子设备的能力~他们在坐牢~，你还需要自行实现以下三个自由函数运算符，否则编译错误：
+此外，因为 [**紫杉大道东**](https://www.bilibili.com/video/BV1frNV6JEMp/) 管控了小左小右使用电子设备的能力~他们在坐牢~，你还需要自行实现以下三个自由函数运算符，否则编译错误：
 
 | 必须实现 | 说明 |
 |---|---|
@@ -74,19 +73,31 @@ extern "C"{
 
 当 $\operatorname{op}\in[1,3]$ 时，接下来读入三个数 $l,r,d$ 表示传入 $\texttt{add},\texttt{mul},\texttt{reset}$ 的三个参数。且有如下的映射关系：
 
-$$1\to\texttt{add}$$
+$$
+1\to\texttt{add}
+$$
 
-$$2\to\texttt{mul}$$
+$$
+2\to\texttt{mul}
+$$
 
-$$3\to\texttt{reset}$$
+$$
+3\to\texttt{reset}
+$$
 
-当 $\operatorname{op}\in[4,6]$ 时，接下来读入两个数 $l,r$ 表示传入 $\texttt{r\_sum},\texttt{r\_max},\texttt{r\_min}$ 的两个参数。且有如下的映射关系：
+当 $\operatorname{op}\in[4,6]$ 时，接下来读入两个数 $l,r$ 表示传入 $\texttt{r\\_sum},\texttt{r\\_max},\texttt{r\\_min}$ 的两个参数。且有如下的映射关系：
 
-$$4\to\texttt{r\_sum}$$
+$$
+4\to\texttt{r\\_sum}
+$$
 
-$$5\to\texttt{r\_max}$$
+$$
+5\to\texttt{r\\_max}
+$$
 
-$$6\to\texttt{r\_min}$$
+$$
+6\to\texttt{r\\_min}
+$$
 
 ## 输出格式
 
@@ -134,6 +145,7 @@ $$6\to\texttt{r\_min}$$
 
 ```
 1
+
 ```
 
 ## 说明/提示
